@@ -74,5 +74,35 @@ async function promise() {
 }
 
 console.log("jago bakre sherr aaya");
-promise();
+//promise();
 console.log("sher aya toh kardega tukde");
+
+// ----------------------------------------trying to implement certain methods regarding promises------------------
+function counterPromise() {
+  console.log("hello counterPromise");
+  let p1 = setTimeout(() => {
+    console.log("main p1 hu brumh!!");
+    setTimeout(() => {
+      console.log("mai p1 ka chotacheems hu");
+    }, 3000);
+  }, 3000);
+
+  console.log("2.");
+
+  let p2 = setTimeout(() => {
+    console.log("main p2 hu brumh!!");
+  }, 6000);
+  console.log("3.");
+
+  let p3 = setTimeout(() => {
+    console.log("main p3 hu brumh!!");
+  }, 9000);
+
+  let a = Promise.all([p1, p2, p3]).then((data) =>
+    console.log("resolve hogaya brumh")
+  );
+
+  console.log("a is finnlay");
+}
+
+counterPromise();
