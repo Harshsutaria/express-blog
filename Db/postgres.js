@@ -1,13 +1,5 @@
 const { Pool } = require("pg");
 
-const client = new Pool({
-  port: 5432,
-  host: "3.7.44.41",
-  user: "openerp",
-  password: "openerp",
-  database: "commondb",
-});
-
 client.connect();
 
 let insert = async (data) =>
