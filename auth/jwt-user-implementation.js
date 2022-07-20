@@ -26,6 +26,7 @@ let users = [
   },
 ];
 
+// creating user
 user.post("/login", (req, res) => {
   console.log("inside login router", req.body.name);
   //   authenticate the user
@@ -38,13 +39,29 @@ user.post("/login", (req, res) => {
   console.log("user prepared object is ", JSON.stringify(user));
 
   //   sining the jwt (create a jwt)
-  let accessToken = jwt.sign(user, jwtSignToken, { expiresIn: "15s" });
+  let accessToken = jwt.sign(user, jwtSignToken, { expiresIn: "60s" });
+
+  //   creating refersh token as once the token is expired we will create a new token jwt based on refersh token
+  let refershToken = jwt.sign(user, jwtRefereshToken);
+
   console.log("accessToken is ", accessToken);
 
   //   injecting into main user list
   users.push(user);
   user.accessToken = accessToken;
+  user.refershToken = refershToken;
   res.status(200).send({ code: 200, info: "login successfully!!", data: user });
+});
+
+//token creation
+user.get("/getAll", (req, res) => {
+  console.log("inside get all users !!!");
+  res.status(200).send({
+    code: 200,
+    count: users.length,
+    data: users,
+    info: "users fetched successfully!!",
+  });
 });
 
 // implementing get route for user
