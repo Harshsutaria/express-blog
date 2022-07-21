@@ -87,8 +87,6 @@ let deleteProduct = async (id) => {
   );
 };
 
-module.exports = { insert, update, getall, get, deleteProduct };
-
 // insert({
 //   mrp: 3322312,
 //   pricePerUnit: 3322312,

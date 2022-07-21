@@ -38,6 +38,8 @@ let products = [
 // get all products
 router.get("/", (req, res) => {
   console.log("inside getall products");
+  // calling a service layer
+  // let data = await
   res.status(200).send({
     code: 200,
     data: products,
