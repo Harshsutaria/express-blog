@@ -9,7 +9,7 @@ app.get("/", (req, res) => {
   console.log("INSIDE GET USERS ROUTE");
   return res
     .status(200)
-    .send({ code: 200, message: "Successfully send a response!!!!!!!!!" });
+    .send({ code: 200, message: "Successfully send a response!!!!!!!!!!!!" });
 });
 
 // the below line will run our code at 3000 port
