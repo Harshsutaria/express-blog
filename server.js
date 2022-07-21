@@ -14,3 +14,11 @@ app.get("/", (req, res) => {
 
 // the below line will run our code at 3000 port
 app.listen(3000);
+
+/**
+ * during merge conflict best approach is
+ * 1. pull rebase
+ * 2. solve the conflict and add the necessary files
+ * 3. git rebase --continue
+ * 4. git push -f origin hahah
+ */
