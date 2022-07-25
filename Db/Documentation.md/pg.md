@@ -37,3 +37,22 @@ In a situation like this, you can use the pg-pool module to solve that.
 //please go through the documenation why we use pooling
 
 https://www.cockroachlabs.com/blog/what-is-connection-pooling/
+
+------------------------------generation of unique id from postgres---------
+
+CREATE TABLE books (
+id SERIAL PRIMARY KEY,
+title VARCHAR(100) NOT NULL,
+primary_author VARCHAR(100) NULL
+);
+
+--sequence
+CREATE SEQUENCE books_sequence
+start 2
+increment 2;
+
+--insertion query
+INSERT INTO books
+(id, title, primary_author)
+VALUES
+(nextval('books_sequence'), 'The Hobbit', 'Tolkien');
