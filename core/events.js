@@ -31,7 +31,15 @@ event.on("hello", (name) => {
 // using class method as a callback while defining event
 event.on("ramu", event.hello);
 
+//emitting the event only once
+event.once("cristinano", (name) => {
+  console.log(`hello from ${name}!!!`);
+});
+
 //calling the events like self call in-case of events e call emitting
 event.emit("hey");
 event.emit("hello", "charsh");
 event.emit("ramu");
+event.emit("cristinano", "messi");
+// as it is second call so ignored
+event.emit("cristinano", "messi");
