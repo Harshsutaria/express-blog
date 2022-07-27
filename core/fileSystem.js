@@ -121,5 +121,59 @@ function write() {
 //write();
 
 /**
- * reading and writing stream pending will do that
+ * 7. create read stream
+ * creating a read stream for a file is to read data in chunks and print or do something
  */
+
+function readStream() {
+  console.log("inside create read stream method !!");
+  let destination = "/home/vsspl/Documents/qoutesCopy.txt";
+
+  //creating the read stream
+  let readStream = fs.createReadStream(destination, "utf8");
+
+  readStream.on("data", (data) => {
+    console.log("data is ", data);
+  });
+
+  readStream.on("end", () => {
+    console.log("ending the process");
+  });
+}
+
+//readStream();
+
+// 8. create write stream
+
+function writeStream() {
+  console.log("writing a file using a stream ");
+  let readSource = "/home/vsspl/Documents/qoutes.txt";
+
+  let destination =
+    "/home/vsspl/Documents/qoutesCopyWriteStreamRealOriginal.txt";
+
+  let readStream = fs.createReadStream(readSource, "utf8");
+
+  //   base writing using appendFile
+  //   readStream.on("data", (data) => {
+  //     fs.appendFile(destination, data, (err) => {
+  //       if (err) {
+  //         console.log("error aagaya brumha ");
+  //       }
+  //     });
+  //   });
+
+  /**using a writable stream  */
+  //   let writableStream = fs.createWriteStream(destination, "utf8");
+
+  //   readStream.on("data", (data) => {
+  //     console.log("writting easy-peasy!!!");
+  //     writableStream.write(data);
+  //   });
+
+  /**using pipe operator */
+  let writableStream = fs.createWriteStream(destination, "utf8");
+  readStream.pipe(writableStream);
+}
+
+writeStream();
