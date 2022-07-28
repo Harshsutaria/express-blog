@@ -42,8 +42,37 @@ async function mainFunc() {
   return main2;
 }
 
-let a = mainFunc()
-  .then((data) => {
-    console.log("data is final outer");
-  })
-  .catch((err) => console.log(" outer **************** error is "));
+// let a = mainFunc()
+//   .then((data) => {
+//     console.log("data is final outer");
+//   })
+//   .catch((err) => console.log(" outer **************** error is "));
+
+// ----------------------------------second approach ----------------------------
+
+async function promise() {
+  console.log("inside promise function");
+  console.log("1.");
+  let p1 = setTimeout(() => {
+    console.log("main p1 hu brumh!!");
+  }, 3000);
+
+  console.log("2.");
+
+  let p2 = setTimeout(() => {
+    console.log("main p2 hu brumh!!");
+  }, 6000);
+  console.log("3.");
+
+  let p3 = setTimeout(() => {
+    console.log("main p3 hu brumh!!");
+  }, 9000);
+
+  console.log("4.");
+
+  console.log("p1 is ", p1);
+}
+
+console.log("jago bakre sherr aaya");
+promise();
+console.log("sher aya toh kardega tukde");
