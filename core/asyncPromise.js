@@ -155,10 +155,13 @@ function promiseMethods() {
   //   });
 
   /**
-   * race will return the promise which will be executing only once !!!! so if one of
+   * race will return the promise which will be executed fasted !!!! so if one of
    *  the promise occures error who cares
    *
+   * it will return the fastest promise among all of them
+   *
    * PS:- note all the promise will be executed simultaneously!!!!!!!!!!!!
+   * even after promise is returned
    */
 
   let result = Promise.race([p1, p2, p3])
