@@ -105,4 +105,86 @@ function counterPromise() {
   console.log("a is finnlay");
 }
 
-counterPromise();
+//counterPromise();
+
+function promiseMethods() {
+  console.log("inside promiseMethods ahhaha");
+
+  // promise p1
+  console.log("trying p1");
+  let p1 = new Promise((resolve, reject) => {
+    console.log("inside setTimeout 1.");
+    setTimeout(() => {
+      console.log("p1 is resolved !!!!!!!!!!");
+      reject("p1");
+    }, 1000);
+  });
+
+  // promise p2
+  console.log("trying p2");
+
+  let p2 = new Promise((resolve, reject) => {
+    console.log("inside setTimeout 2.");
+    setTimeout(() => {
+      console.log("p2 is resolved !!!!!!!!!!");
+      resolve("p2");
+    }, 5000);
+  });
+
+  // promise p3
+  console.log("trying p3");
+
+  let p3 = new Promise((resolve, reject) => {
+    console.log("inside setTimeout 3.");
+    setTimeout(() => {
+      console.log("p3 is resolved !!!!!!!!!!");
+      resolve("p3");
+    }, 10000);
+  });
+
+  console.log("trying to resolve alll");
+
+  // all the promise will be resolved and it will return array of results of all the prmise
+  // let result = Promise.all([p1, p2, p3])
+  //   .then((data) => {
+  //     console.log("trying to return the result ", data);
+  //     return data;
+  //   })
+  //   .catch((err) => {
+  //     console.log("error aagaya brumha");
+  //   });
+
+  /**
+   * race will return the promise which will be executing only once !!!! so if one of
+   *  the promise occures error who cares
+   *
+   * PS:- note all the promise will be executed simultaneously!!!!!!!!!!!!
+   */
+
+  let result = Promise.race([p1, p2, p3])
+    .then((data) => {
+      console.log("trying to return the result ", data);
+      return data;
+    })
+    .catch((error) => {
+      console.log("error occured while racing !!!");
+    });
+
+  console.log("result is************* ", result);
+
+  return result;
+}
+
+async function promiseMethodsCousumer() {
+  console.log("inside promiseMethodsCousumer ahhahaha");
+
+  console.log("1. is ");
+  let result = await promiseMethods();
+
+  console.log("result is hahahahahh", result);
+  return result;
+}
+
+promiseMethodsCousumer().then((data) => {
+  console.log("result is outer ", data);
+});
