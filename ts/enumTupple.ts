@@ -10,3 +10,7 @@ enum language {
 }
 
 console.log(language.ENGLISH);
+
+let a: [string, boolean, number] = ["2", true, 1];
+
+a[0] = "1";
