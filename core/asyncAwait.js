@@ -1,4 +1,7 @@
-/**Async/Await is used to work with promises in asynchronous functions.
+/**
+ * @DocumentationLink :- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+ *
+ * Async/Await is used to work with promises in asynchronous functions.
  * It is basically syntactic sugar for promises. It is just a wrapper to
  * restyle code and make promises easier to read and use.
  *  It makes asynchronous code look more like synchronous/procedural code, which is easier to understand
@@ -71,5 +74,15 @@ function mainPromise() {
     console.log("a3 is ", a3);
   });
 }
-//main();
+mainSequece();
 //mainPromise();
+
+function mainSequece() {
+  console.log("inside main function ");
+  let a1 = p1();
+  console.log("a1 is ", a1);
+  let a2 = p2();
+  console.log("a2 is ", a2);
+  let a3 = p3();
+  console.log("a3 is ", a3);
+}
