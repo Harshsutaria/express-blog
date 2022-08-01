@@ -61,7 +61,7 @@ async function promise() {
 
   let p2 = setTimeout(() => {
     console.log("main p2 hu brumh!!");
-  }, 6000);
+  }, 1000);
   console.log("3.");
 
   let p3 = setTimeout(() => {
@@ -188,6 +188,6 @@ async function promiseMethodsCousumer() {
   return result;
 }
 
-promiseMethodsCousumer().then((data) => {
-  console.log("result is outer ", data);
-});
+// promiseMethodsCousumer().then((data) => {
+//   console.log("result is outer ", data);
+// });

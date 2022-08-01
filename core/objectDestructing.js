@@ -42,7 +42,7 @@ function sum(...args) {
 
 let arr = [5, 10, 15, 12];
 
-sum(...arr);
+//sum(...arr);
 
 /**
  * ... is the syntax used to define rest and spread operator
@@ -52,6 +52,27 @@ sum(...arr);
  */
 
 let a = [1, 2, ...[3, 4]];
-console.log(a);
+//console.log(a);
 let [p, q, ...r] = [...a];
-console.log(p, q, r);
+//console.log(p, q, r);
+
+/**
+ * null coloassing operator
+ * there are only 2 type of nullish values
+ */
+
+console.log(10 || 100);
+console.log(0 || 100); //=> 100
+console.log(0 ?? 100); //=> 0
+console.log(undefined ?? null ?? 10);
+
+/**optional chaining */
+let obj = {
+  name: "harsh",
+  info: {
+    age: 22,
+    city: "mumbai",
+  },
+};
+
+console.log(obj.info.city);
