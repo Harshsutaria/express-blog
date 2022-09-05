@@ -4,7 +4,7 @@ function resolveAfter2Seconds() {
     setTimeout(function () {
       resolve("slow");
       console.log("slow promise is done");
-    }, 2000);
+    }, 8000);
   });
 }
 
@@ -14,19 +14,21 @@ function resolveAfter1Second() {
     setTimeout(function () {
       resolve("fast");
       console.log("fast promise is done");
-    }, 1000);
+    }, 4000);
   });
 }
 
 async function sequentialStart() {
-  console.log("==SEQUENTIAL START==");
+  console.log("==SEQUENTIAL START==", new Date().toISOString());
 
   // 1. Execution gets here almost instantly
   const slow = await resolveAfter2Seconds();
   console.log(slow); // 2. this runs 2 seconds after 1.
 
+  console.log("slow completed ", new Date().toISOString());
   const fast = await resolveAfter1Second();
   console.log(fast); // 3. this runs 3 seconds after 1.
+  console.log("ended ", new Date().toISOString());
 }
 
 async function concurrentStart() {
@@ -60,12 +62,13 @@ async function parallel() {
 }
 
 sequentialStart(); // after 2 seconds, logs "slow", then after 1 more second, "fast"
+console.log("hurrayy");
 
-// wait above to finish
-setTimeout(concurrentStart, 4000); // after 2 seconds, logs "slow" and then "fast"
+// // wait above to finish
+// setTimeout(concurrentStart, 4000); // after 2 seconds, logs "slow" and then "fast"
 
-// wait again
-setTimeout(concurrentPromise, 7000); // same as concurrentStart
+// // wait again
+// setTimeout(concurrentPromise, 7000); // same as concurrentStart
 
-// wait again
-setTimeout(parallel, 10000); // truly parallel: after 1 second, logs "fast", then after 1 more second, "slow"
+// // wait again
+// setTimeout(parallel, 10000); // truly parallel: after 1 second, logs "fast", then after 1 more second, "slow"
