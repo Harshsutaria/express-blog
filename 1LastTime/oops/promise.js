@@ -86,6 +86,7 @@ async function getMultipleUsersParallerAllSetelled(x, y, z) {
    * but in case of promisea.all setelled it will never short curcuit
    * it will retuen the status as well as data in the form of array of objects
    */
+
   let users = await Promise.allSettled([
     [getUser(x), getUser(y), getUser(z)],
   ]).then((data) => {
