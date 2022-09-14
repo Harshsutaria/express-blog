@@ -1,5 +1,8 @@
 /**
- * implementing getter setter in a person object
+ * implementing getter setter in a person object'
+ * Getters and setters are used to protect your data, particularly when creating classes. For each instance variable,
+ *  a getter method returns its value while a setter method sets or updates its value.
+ *  Given this, getters and setters are also known as accessors and mutators, respectively.
  */
 
 const person = {
