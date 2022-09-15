@@ -32,13 +32,14 @@ async function sequentialStart() {
 }
 
 async function concurrentStart() {
-  console.log("==CONCURRENT START with await==");
+  console.log("==CONCURRENT START with await==", new Date().toISOString());
   const slow = resolveAfter2Seconds(); // starts timer immediately
   const fast = resolveAfter1Second(); // starts timer immediately
 
   // 1. Execution gets here almost instantly
   console.log(await slow); // 2. this runs 2 seconds after 1.
   console.log(await fast); // 3. this runs 2 seconds after 1., immediately after 2., since fast is already resolved
+  console.log("completed concurrent start", new Date().toISOString());
 }
 
 function concurrentPromise() {
@@ -52,17 +53,20 @@ function concurrentPromise() {
 }
 
 async function parallel() {
-  console.log("==PARALLEL with await Promise.all==");
+  console.log("==PARALLEL with await Promise.all==", new Date().toISOString());
 
   // Start 2 "jobs" in parallel and wait for both of them to complete
   await Promise.all([
     (async () => console.log(await resolveAfter2Seconds()))(),
     (async () => console.log(await resolveAfter1Second()))(),
   ]);
+
+  console.log("completed parallel ", new Date().toISOString());
 }
 
-sequentialStart(); // after 2 seconds, logs "slow", then after 1 more second, "fast"
-console.log("hurrayy");
+concurrentStart();
+//sequentialStart(); // after 2 seconds, logs "slow", then after 1 more second, "fast"
+//console.log("hurrayy");
 
 // // wait above to finish
 // setTimeout(concurrentStart, 4000); // after 2 seconds, logs "slow" and then "fast"
