@@ -9,6 +9,10 @@ function mul(a, b) {
   console.log("a*b", a * b);
 }
 
+function sub(a, b) {
+  console.log("a-b", a - b);
+}
+
 // one way of exporting
 // module.exports = { add, mul, a };
 
@@ -17,3 +21,4 @@ function mul(a, b) {
 module.exports.a = a;
 module.exports.add = add;
 module.exports.mul = mul;
+exports.sub = sub;

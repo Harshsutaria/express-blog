@@ -20,7 +20,7 @@ class Hemloo extends Event {
 
 const heloo = new Hemloo("cheems doge");
 
-heloo.once("hemloo", heloo.helloDoge); //=> only claass execute to once
+heloo.once("hemloo", heloo.helloDoge); //=> only claass3 execute to once
 heloo.on("hey", () => {
   console.log("hey thetr cheems ");
 });

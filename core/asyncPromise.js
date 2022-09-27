@@ -42,11 +42,11 @@ async function mainFunc() {
   return main2;
 }
 
-// let a = mainFunc()
-//   .then((data) => {
-//     console.log("data is final outer");
-//   })
-//   .catch((err) => console.log(" outer **************** error is "));
+let a = mainFunc()
+  .then((data) => {
+    console.log("data is final outer");
+  })
+  .catch((err) => console.log(" outer **************** error is "));
 
 // ----------------------------------second approach ----------------------------
 
@@ -73,9 +73,9 @@ async function promise() {
   console.log("p1 is ", p1);
 }
 
-console.log("jago bakre sherr aaya");
-//promise();
-console.log("sher aya toh kardega tukde");
+// console.log("jago bakre sherr aaya");
+// //promise();
+// console.log("sher aya toh kardega tukde");
 
 // ----------------------------------------trying to implement certain methods regarding promises------------------
 function counterPromise() {
