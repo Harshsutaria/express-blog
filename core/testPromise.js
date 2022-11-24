@@ -20,6 +20,13 @@ function hola() {
     }, 7000);
   });
 
+
+  let p4 =  new Promise((resolve , reject)=>{
+    setTimeout(()=>{
+      console.log("HURRAY NOT WANT")
+    })
+  })
+
   return [p1, p2, p3];
 }
 
