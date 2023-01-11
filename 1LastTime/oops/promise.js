@@ -25,10 +25,10 @@ function getUser(name) {
 //   "THE BEST TIME TO PLANT A TREE WAS 20 YEARS AGO THE SECOND BEST TIME IS NOW"
 // );
 
-// getUser("Cheems")
-//   .then((data) => console.log("user info is ", JSON.stringify(data.data)))
-//   .catch((err) => console.log("error occures is ,", err))
-//   .finally(() => console.log("finnaly executed"));
+getUser("Cheems")
+  .then((data) => console.log("user info is ", JSON.stringify(data.data)))
+  .catch((err) => console.log("error occures is ,", err))
+  .finally(() => console.log("finnaly executed"));
 
 // console.log("TESTED ASYNCHRONOUS FROM");
 

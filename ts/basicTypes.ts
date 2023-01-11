@@ -10,7 +10,7 @@ let b: number | string | boolean | undefined | null | any | Object | user =
 // lets play with type user
 
 type userInfo = {
-  name: string;
+  name: string,
   lastName?: string;
 };
 

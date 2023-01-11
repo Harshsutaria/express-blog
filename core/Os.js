@@ -1,14 +1,13 @@
-/**
- * @DocumentationLink https://nodejs.dev/learn/the-nodejs-os-module
- * this is the os library documentation
- */
+const myCar = {
+  maxSpeed: 250,
+  batteryLife: 300,
+  weight: 123,
+};
 
-const os = require("os");
-//console.log(os.cpus());
-//system up time
-// console.log(os.uptime());
-// console.log(os.userInfo());
-console.log(os.arch());
-console.log(os.freemem());
-console.log(os.hostname());
-console.log(os.loadavg());
+Object.isSealed(myCar); // false
+Object.seal(myCar);
+console.log(Object.isSealed(myCar)); // true
+
+myCar.batteryLife = 500;
+
+console.log("hd d", myCar);

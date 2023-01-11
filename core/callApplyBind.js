@@ -19,7 +19,7 @@ function printT(a, b, c, d) {
   console.log(`${this.name} ${this.surname} is ${this.age} years old`);
 }
 
-// printT(a); =>'vanila approact to call a method '
+printT(a); //=>'vanila approact to call a method '
 // printT(b);
 /**
  * call method is used to invoke a function by passing the reference which is this inside the method
@@ -40,19 +40,19 @@ function printT(a, b, c, d) {
 // 3. bind
 
 // bind method is used to copy a function from one method to another
-const person = {
-  firstName: "John",
-  lastName: "Doe",
-  fullName: function () {
-    return this.firstName + " " + this.lastName;
-  },
-};
+// const person = {
+//   firstName: "John",
+//   lastName: "Doe",
+//   fullName: function () {
+//     return this.firstName + " " + this.lastName;
+//   },
+// };
 
-const member = {
-  firstName: "Hege",
-  lastName: "Nilsen",
-};
+// const member = {
+//   firstName: "Hege",
+//   lastName: "Nilsen",
+// };
 
-let fullName = person.fullName.bind(member);
+// let fullName = person.fullName.bind(member);
 
-console.log("fullName is ", fullName());
+// console.log("fullName is ", fullName());

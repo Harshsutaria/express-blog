@@ -9,7 +9,7 @@ class Employee extends EventEmitter {
   }
 
   hello() {
-    console.log("hello from the class hello method !!!");
+    console.log("hello from th  e class hello method !!!");
   }
 }
 

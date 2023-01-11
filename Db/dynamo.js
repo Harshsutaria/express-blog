@@ -29,13 +29,13 @@ async function putItem(data) {
 
   // creating put request
   const putRequest = {
-    TableName: "product_test",
+    TableName: "profile",
     Item: {
       id: {
         S: id, //S stands for the data type for the key to be stored!! PS in whole project we have used S as it symbolizes that we have stored data of type string in id field
       },
-      productLevel3Title: {
-        S: data,
+      data: {
+        S: JSON.stringify(data),
       },
     },
   };
@@ -60,7 +60,7 @@ async function putItem(data) {
   };
 }
 
-//putItem("mango cheems singh!!");
+putItem({ name: "mango cheems singh!!" });
 
 async function getItem(id) {
   console.log("Invoked for ", id);
@@ -115,4 +115,4 @@ async function deleteItem(id) {
   console.log("res is ", res);
 }
 
-getItem("7055518b-1f82-47cc-9477-5457a6d93e97");
+// getItem("7055518b-1f82-47cc-9477-5457a6d93e97");
