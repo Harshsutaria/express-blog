@@ -44,7 +44,7 @@ class Student extends Person implements secondInterface {
   }
 
   log(): void {
-    console.log("mai cheems hu ", this., this.lastName);
+    console.log("mai cheems hu ", this.name, this.lastName);
   }
 }
 

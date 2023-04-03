@@ -4,7 +4,7 @@ type user = {
 };
 
 // ---basic types which i know
-let b: number | string | boolean | undefined | null | any | Object | user =
+let b: number | string | boolean | undefined | null | any | Object | user  | unknown =
   true;
 
 // lets play with type user
